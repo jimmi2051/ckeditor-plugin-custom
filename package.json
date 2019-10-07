@@ -1,5 +1,5 @@
 {
-	"name": "ckeditor5-build-class-font",
+	"name": "ckeditor5-build-font-source",
 	"version": "12.4.0",
 	"description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
 	"keywords": [
@@ -66,7 +66,7 @@
 	"bugs": "https://github.com/ckeditor/ckeditor5/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
+		"url": "https://github.com/jimmi2051/ckeditor-plugin-custom.git"
 	},
 	"scripts": {
 		"build": "webpack --mode production",

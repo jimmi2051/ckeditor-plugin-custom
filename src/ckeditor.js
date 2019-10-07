@@ -30,8 +30,7 @@ import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import Font from "@ckeditor/ckeditor5-font/src/font";
 import Plugin from "@ckeditor/ckeditor5-core/src/plugin";
 import ButtonView from "@ckeditor/ckeditor5-ui/src/button/buttonview";
-import viewToPlainText from "@ckeditor/ckeditor5-clipboard/src/utils/viewtoplaintext";
-import imageIcon from "@ckeditor/ckeditor5-core/theme/icons/image.svg";
+import imageIcon from "./icons/source.svg";
 import {
 	getData,
 	setData
@@ -54,23 +53,13 @@ class ViewSource extends Plugin {
 
 			// Callback executed once the image is clicked.
 			view.on("execute", () => {
-				let dataOfModel = editor.getData();
-				let plainText = viewToPlainText(
-					editor.editing.view.getDomRoot()
-				);
-				alert(plainText);
 				if (viewCode) {
-					// const viewFragment = editor.data.processor.toView(
-					// 	dataOfModel
-					// );
-					// const modelFragment = editor.data.toModel(viewFragment);
-
-					// editor.model.insertContent(modelFragment);
-					plainText = plainText.slice(3, plainText.length - 4);
+					let plainText =
+						editor.editing.view.getDomRoot().textContent;
 					editor.setData(plainText);
 					viewCode = false;
 				} else {
-					alert("Set data paragraph");
+					let dataOfModel = editor.getData();
 					setData(editor.model, "");
 					backupCode = dataOfModel;
 					editor.model.change(writer => {
@@ -86,7 +75,7 @@ class ViewSource extends Plugin {
 	}
 }
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditor extends ClassicEditorBase { }
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
